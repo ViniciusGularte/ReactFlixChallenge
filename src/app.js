@@ -14,9 +14,9 @@ const App = () => (
 
     <Main>
       <Videoslist>
-        {Array.from({length:10}).map((item,index)=>(
+        {Array.from({length:10}).map((item,index) => (
           <Video key={index}>
-            <VideoThumb></VideoThumb>
+            <VideoThumb/>
             <VideoTitle>Titulo do video</VideoTitle>
           </Video>
         ))}
@@ -55,7 +55,10 @@ const Videoslist = styled.div`
   flex-wrap:wrap;
 `
 const Video = styled.div`
-
+  flex: 1 1 300px;
+`
+const VideoTitle = styled.div`
+  font-size:18px;
 `
 const VideoThumb = styled.div`
   border:1px solid black;
