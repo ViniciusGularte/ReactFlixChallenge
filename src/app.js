@@ -2,7 +2,7 @@
 
 import React from 'react'
 import styled, { injectGlobal } from 'styled-components'
-
+import Play from 'components/play'
 import 'normalize.css'
 import 'milligram'
 
@@ -16,13 +16,14 @@ const App = () => (
       <Videoslist>
         {Array.from({length:10}).map((item,index) => (
           <Video key={index}>
-            <VideoThumb/>
+            <VideoThumb>
+              <PlayStyled />
+            </VideoThumb>
             <VideoTitle>Titulo do video</VideoTitle>
           </Video>
         ))}
       </Videoslist>
     </Main>
-
     <Footer>
       &copy; 2018
     </Footer>
@@ -60,9 +61,19 @@ const Video = styled.div`
 const VideoTitle = styled.div`
   font-size:18px;
 `
+
 const VideoThumb = styled.div`
-  border:1px solid black;
-  height:50px;
+  align-items: center;
+  border: 1px solid #999;
+  display: flex;
+  height: 150px;
+  justify-content: center;
+`
+
+const PlayStyled = styled(Play)`
+  fill: #999;
+  height: 50px;
+  width: 50px;
 `
 const Footer = styled.footer`
    height: ${footerHeight};
