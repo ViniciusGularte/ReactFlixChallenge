@@ -1,11 +1,10 @@
 'use strict'
 
 import React from 'react'
-import styled, { injectGlobal } from 'styled-components'
-import Play from 'components/play'
 import 'normalize.css'
 import 'milligram'
-
+import styled, {injectGlobal} from 'styled-components'
+import Videoslist from 'components/videos-list'
 const App = () => (
   <Container>
     <Header>
@@ -13,16 +12,7 @@ const App = () => (
     </Header>
 
     <Main>
-      <Videoslist>
-        {Array.from({length:10}).map((item,index) => (
-          <Video key={index}>
-            <VideoThumb>
-              <PlayStyled />
-            </VideoThumb>
-            <VideoTitle>Titulo do video</VideoTitle>
-          </Video>
-        ))}
-      </Videoslist>
+      <Videoslist/>
     </Main>
     <Footer>
       &copy; 2018
@@ -51,30 +41,7 @@ const Header = styled.header`
 const Main = styled.main`
   min-height: calc(100% - ${headerHeight} - ${footerHeight});
 `
-const Videoslist = styled.div`
-  display:flex;
-  flex-wrap:wrap;
-`
-const Video = styled.div`
-  flex: 1 1 300px;
-`
-const VideoTitle = styled.div`
-  font-size:18px;
-`
 
-const VideoThumb = styled.div`
-  align-items: center;
-  border: 1px solid #999;
-  display: flex;
-  height: 150px;
-  justify-content: center;
-`
-
-const PlayStyled = styled(Play)`
-  fill: #999;
-  height: 50px;
-  width: 50px;
-`
 const Footer = styled.footer`
    height: ${footerHeight};
   background: #333;
