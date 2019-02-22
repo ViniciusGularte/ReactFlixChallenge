@@ -4,7 +4,9 @@ import React from 'react'
 import 'normalize.css'
 import 'milligram'
 import styled, {injectGlobal} from 'styled-components'
-import Videoslist from 'components/videos-list'
+import VideosList from 'components/videos-list'
+import VideoSingle from 'components/video-single'
+
 const App = () => (
   <Container>
     <Header>
@@ -12,7 +14,8 @@ const App = () => (
     </Header>
 
     <Main>
-      <Videoslist/>
+      <VideoSingle/>
+      <VideosList/>
     </Main>
     <Footer>
       &copy; 2018
