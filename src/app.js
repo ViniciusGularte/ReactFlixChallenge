@@ -6,6 +6,7 @@ import 'milligram'
 import styled, {injectGlobal} from 'styled-components'
 import VideosList from 'components/videos-list'
 import VideoSingle from 'components/video-single'
+import RegisterVideo from 'components/register-video'
 
 const App = () => (
   <Container>
@@ -14,6 +15,7 @@ const App = () => (
     </Header>
 
     <Main>
+      <RegisterVideo/>
       <VideoSingle/>
       <VideosList/>
     </Main>
