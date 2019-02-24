@@ -13,7 +13,6 @@ const App = () => (
     <Header>
       <h1>Reactflix</h1>
     </Header>
-
     <Main>
       <RegisterVideo/>
       <VideoSingle/>
@@ -48,7 +47,7 @@ const Main = styled.main`
 `
 
 const Footer = styled.footer`
-   height: ${footerHeight};
+  height: ${footerHeight};
   background: #333;
 `
 
