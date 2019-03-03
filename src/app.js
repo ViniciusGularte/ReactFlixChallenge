@@ -11,7 +11,8 @@ import RegisterVideo from 'components/register-video'
 const App = () => (
   <Container>
     <Header>
-      <h1>Reactflix</h1>
+      <HeaderTitle>Reactflix</HeaderTitle>
+      <RegisterButton>Cadastrar Vídeo</RegisterButton>
     </Header>
     <Main>
       <RegisterVideo/>
@@ -39,7 +40,11 @@ const Container = styled.div`
 
 const Header = styled.header`
   height: ${headerHeight};
+  display:flex;
   background: #333;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 10px;
 `
 
 const Main = styled.main`
@@ -50,5 +55,11 @@ const Footer = styled.footer`
   height: ${footerHeight};
   background: #333;
 `
-
+const RegisterButton = styled.button`
+  margin-bottom:0;
+`
+const HeaderTitle = styled.h1`
+  margin-bottom:0;
+  color:white;
+`
 export default App
