@@ -19,13 +19,16 @@ const RegisterVideo = ({onSubmit}) =>(
   </form>
 )
 const mapDispatchToProps = (dispatch) => ({
-  onSubmit: (e) => {
+  onSubmit: async (e) => {
     e.preventDefault()
+    e.persist()
     const {
       id:{ value: id },
       title:{ value: title }
     } = e.target
-    dispatch(registerVideo({ id, title }))
+    e.target.reset()
+    e.target[0].focus()
+    await dispatch(registerVideo({ id, title }))
 
   }
 })
