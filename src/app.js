@@ -1,6 +1,7 @@
 'use strict'
 
 import React from 'react'
+import { connect } from 'react-redux'
 import 'normalize.css'
 import 'milligram'
 import Header from 'components/header'
@@ -10,11 +11,11 @@ import VideosList from 'components/videos-list'
 import VideoSingle from 'components/video-single'
 import RegisterVideo from 'components/register-video'
 import { headerHeight, footerHeight} from 'utils/constants'
-const App = () => (
+const App = ({ isRegisterVideoFormOpened }) => (
   <Container>
     <Header/>
     <Main>
-      <RegisterVideo/>
+      {isRegisterVideoFormOpened && <RegisterVideo/>}
       <VideoSingle/>
       <VideosList/>
     </Main>
@@ -34,5 +35,7 @@ const Container = styled.div`
 const Main = styled.main`
   min-height: calc(100% - ${headerHeight} - ${footerHeight});
 `
-
-export default App
+const mapStateToProps = (state) =>({
+  isRegisterVideoFormOpened: state.ui.isRegisterVideoFormOpened
+})
+export default connect(mapStateToProps)(App)

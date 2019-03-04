@@ -1,11 +1,12 @@
 'use strict'
 
 import React from 'react'
+import { connect } from 'react-redux'
 import styled from 'styled-components'
-import {connect} from 'react-redux'
 import { registerVideo } from 'reducers/videos/action-creators'
+import { closeRegisterVideo } from 'reducers/ui/action-creators'
 
-const RegisterVideo = ({onSubmit}) =>(
+const RegisterVideo = ({onSubmit, onCloseRegisterVideo}) =>(
   <Form onSubmit={onSubmit}>
     <h2>Cadastrar Vídeo</h2>
 
@@ -16,7 +17,7 @@ const RegisterVideo = ({onSubmit}) =>(
     <input type='text' id='title' name='title' />
 
     <button type='submit'>Cadastrar</button>
-    <ButtonClose type='button'>&times;</ButtonClose>
+    <ButtonClose type='button' onClick ={onCloseRegisterVideo}>&times;</ButtonClose>
   </Form>
 )
 const Form = styled.form`
@@ -48,6 +49,7 @@ const mapDispatchToProps = (dispatch) => ({
     e.target[0].focus()
     await dispatch(registerVideo({ id, title }))
 
-  }
+  },
+  onCloseRegisterVideo:() => dispatch(closeRegisterVideo())
 })
 export default connect(null,mapDispatchToProps)(RegisterVideo)
