@@ -28,6 +28,6 @@ const HeaderTitle = styled.h1`
   color:white;
 `
 const mapDispatchToProps = (dispatch) => ({
-  onOpenRegisterVideo: () => dispatch(openRegisterVideo)
+  onOpenRegisterVideo: () => dispatch(openRegisterVideo())
 })
 export default connect(null, mapDispatchToProps)(MainHeader)

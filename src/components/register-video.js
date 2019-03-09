@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { registerVideo } from 'reducers/videos/action-creators'
 import { closeRegisterVideo } from 'reducers/ui/action-creators'
 
-const RegisterVideo = ({onSubmit, onCloseRegisterVideo}) =>(
+const RegisterVideo = ({ onSubmit, onCloseRegisterVideo}) =>(
   <Form onSubmit={onSubmit}>
     <h2>Cadastrar Vídeo</h2>
 

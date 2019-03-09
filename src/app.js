@@ -35,7 +35,7 @@ const Container = styled.div`
 const Main = styled.main`
   min-height: calc(100% - ${headerHeight} - ${footerHeight});
 `
-const mapStateToProps = (state) =>({
+const mapStateToProps = (state) => ({
   isRegisterVideoFormOpened: state.ui.isRegisterVideoFormOpened
 })
 export default connect(mapStateToProps)(App)
