@@ -1,15 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import Play from 'components/play'
+import { connect } from 'react-redux'
 
-const Videoslist = () =>(
+const Videoslist = ({ videos }) =>(
   <Container>
-    {Array.from({length:10}).map((item,index) => (
-      <Video key={index}>
+    {Object.keys(videos).map((id) => (
+      <Video key={id}>
         <VideoThumb>
           <PlayStyled />
         </VideoThumb>
-        <VideoTitle>Titulo do video</VideoTitle>
+        <VideoTitle>{videos[id].title}</VideoTitle>
       </Video>
     ))}
   </Container>
@@ -46,5 +47,7 @@ const VideoThumb = styled.div`
   height: 150px;
   justify-content: center;
 `
-
-export default Videoslist
+const mapStateToProps = (state) => ({
+  videos: state.videos
+})
+export default connect(mapStateToProps)(Videoslist)

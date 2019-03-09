@@ -1,6 +1,6 @@
 'use strict'
 
-import React from 'react'
+import React, { PureComponent} from 'react'
 import { connect } from 'react-redux'
 import 'normalize.css'
 import 'milligram'
@@ -11,17 +11,28 @@ import VideosList from 'components/videos-list'
 import VideoSingle from 'components/video-single'
 import RegisterVideo from 'components/register-video'
 import { headerHeight, footerHeight} from 'utils/constants'
-const App = ({ isRegisterVideoFormOpened }) => (
-  <Container>
-    <Header/>
-    <Main>
-      {isRegisterVideoFormOpened && <RegisterVideo/>}
-      <VideoSingle/>
-      <VideosList/>
-    </Main>
-    <Footer/>
-  </Container>
-)
+import { fetchVideos } from 'reducers/videos/action-creators'
+
+class App extends PureComponent{
+  componentDidMount(){
+    this.props.fetchVideos()
+  }
+  render(){
+    const { isRegisterVideoFormOpened } = this.props
+    return(
+      <Container>
+        <Header/>
+        <Main>
+          {isRegisterVideoFormOpened && <RegisterVideo/>}
+          <VideoSingle/>
+          <VideosList/>
+        </Main>
+        <Footer/>
+      </Container>
+    )
+  }
+}
+
 
 injectGlobal`
   html, body, div[data-js="app"] {
@@ -35,7 +46,8 @@ const Container = styled.div`
 const Main = styled.main`
   min-height: calc(100% - ${headerHeight} - ${footerHeight});
 `
+const mapDispatchToProps = ( fetchVideos )
 const mapStateToProps = (state) => ({
   isRegisterVideoFormOpened: state.ui.isRegisterVideoFormOpened
 })
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps,mapDispatchToProps)(App)
