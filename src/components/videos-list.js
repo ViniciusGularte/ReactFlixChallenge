@@ -9,7 +9,7 @@ const Videoslist = ({ videos, handleClick  }) =>(
     {Object.keys(videos).map((id) => (
       <Video key={id}>
         <VideoLink href='#' onClick={handleClick(id)}>
-          <VideoThumb>
+          <VideoThumb backgroundImage={`https://img.youtube.com/vi/${id}/0.jpg`}>
             <PlayStyled />
           </VideoThumb>
           <VideoTitle>{videos[id].title}</VideoTitle>
@@ -48,9 +48,13 @@ const VideoTitle = styled.div`
 
 const VideoThumb = styled.div`
   align-items: center;
+  background-image: url(${props => props.backgroundImage });
+  background-size:     cover;                   
+  background-repeat:   no-repeat;
+  background-position: center center;
   border: 1px solid #999;
   display: flex;
-  height: 150px;
+  height: 250px;
   justify-content: center;
 `
 const mapStateToProps = (state) => ({
