@@ -3,14 +3,16 @@ import styled from 'styled-components'
 import Play from 'components/play'
 import { connect } from 'react-redux'
 
-const Videoslist = ({ videos }) =>(
+const Videoslist = ({ videos, handleClick  }) =>(
   <Container>
     {Object.keys(videos).map((id) => (
       <Video key={id}>
-        <VideoThumb>
-          <PlayStyled />
-        </VideoThumb>
-        <VideoTitle>{videos[id].title}</VideoTitle>
+        <VideoLink href='#' onClick={handleClick(id)}>
+          <VideoThumb>
+            <PlayStyled />
+          </VideoThumb>
+          <VideoTitle>{videos[id].title}</VideoTitle>
+        </VideoLink>
       </Video>
     ))}
   </Container>
@@ -35,6 +37,9 @@ const Container = styled.div`
       margin:0 5px 5px;
   }
 `
+const VideoLink = styled.a`
+  color: inherit;
+`
 
 const VideoTitle = styled.div`
   font-size:18px;
@@ -50,4 +55,10 @@ const VideoThumb = styled.div`
 const mapStateToProps = (state) => ({
   videos: state.videos
 })
-export default connect(mapStateToProps)(Videoslist)
+const mapDispatchToProps = (dispatch) => ({
+  handleClick: (id) => (e) => {
+      e.preventDefault()
+      console.log("clicando videos",id)
+  }
+})
+export default connect(mapStateToProps,mapDispatchToProps)(Videoslist)
