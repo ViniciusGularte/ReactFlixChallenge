@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Play from 'components/play'
 import { connect } from 'react-redux'
+import { addVideoSingle } from 'reducers/video-single/action-creators'
 
 const Videoslist = ({ videos, handleClick  }) =>(
   <Container>
@@ -58,7 +59,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   handleClick: (id) => (e) => {
       e.preventDefault()
-      console.log("clicando videos",id)
+      dispatch(addVideoSingle(id))
   }
 })
 export default connect(mapStateToProps,mapDispatchToProps)(Videoslist)

@@ -18,13 +18,13 @@ class App extends PureComponent{
     this.props.fetchVideos()
   }
   render(){
-    const { isRegisterVideoFormOpened } = this.props
+    const { isRegisterVideoFormOpened,videoSingleId, videos } = this.props
     return(
       <Container>
         <Header/>
         <Main>
           {isRegisterVideoFormOpened && <RegisterVideo/>}
-          <VideoSingle/>
+          {videoSingleId && <VideoSingle id={videoSingleId} title={videos[videoSingleId].titulo}/>}
           <VideosList/>
         </Main>
         <Footer/>
@@ -48,6 +48,8 @@ const Main = styled.main`
 `
 const mapDispatchToProps = ( fetchVideos )
 const mapStateToProps = (state) => ({
-  isRegisterVideoFormOpened: state.ui.isRegisterVideoFormOpened
+  isRegisterVideoFormOpened: state.ui.isRegisterVideoFormOpened,
+  videoSingleId:state.videoSingle,
+  videos: state.videos
 })
 export default connect(mapStateToProps,mapDispatchToProps)(App)
