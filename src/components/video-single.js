@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const VideoSingle = ({ id , title }) =>(
   <Container>
-    <Iframe width='560' height='315' src={`https://www.youtube.com/embed/${id}`} frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen/>
+    <Iframe width='560' height='400' src={`https://www.youtube.com/embed/${id}`} frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen/>
     <h2>{title}</h2>
   </Container>
 )
