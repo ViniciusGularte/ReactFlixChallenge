@@ -1,4 +1,7 @@
 # Workflow ReactJS
+<p align='text-center'>
+  <img width='800' height='600' src='final.gif'/>
+<p>
 
 ## Created a Reactflix for course of [React Ninja](https://www.udemy.com/curso-reactjs-ninja/)
 
